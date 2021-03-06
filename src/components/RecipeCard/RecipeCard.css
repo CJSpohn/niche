@@ -1,7 +1,5 @@
 .recipe-card {
-  width: 50%;
-  height: 30%;
-  border: 1px solid black;
+  border: 1px solid #4D0906;
   margin: 10px;
   text-align: center;
 }
@@ -9,4 +7,16 @@
 .recipe-img {
   width: 100px;
   height: 100px;
+}
+
+.red {
+  color: #4D0906;
+}
+
+.green {
+  color: green;
+}
+
+.missing {
+  font-size: 2rem;
 }
