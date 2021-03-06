@@ -8,11 +8,21 @@ import './App.css'
 const App = () => {
   return (
     <>
-      <Header />
-      <div className="body-wrapper">
-        <Aside />
-        <Recipes />
-      </div>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <>
+              <Header />
+              <div className="body-wrapper">
+                <Aside />
+                <Recipes />
+              </div>
+            </>
+          )}
+        />
+      </Switch>
     </>
   )
 }
