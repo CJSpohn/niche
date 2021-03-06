@@ -10,11 +10,11 @@ const RecipeForm = () => {
   const getRecipes = async (e) => {
     const apiKey = process.env.REACT_APP_SPOON_KEY;
     e.preventDefault();
-    console.log('ingredients', ingredients)
     const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
-    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsSearchQuery}&number=2&apiKey=${apiKey}`)
+    console.log('ingredients', ingredientsSearchQuery)
+    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=1&apiKey=${apiKey}`)
     const results = await data.json();
-    console.log(results);
+    console.log('results', results);
     setRecipes(results);
   }
 

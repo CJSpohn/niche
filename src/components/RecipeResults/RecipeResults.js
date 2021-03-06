@@ -1,9 +1,15 @@
 import React from 'react';
 import './RecipeResults.css';
 
-const RecipeResults = (props) => {
+const RecipeResults = ({ recipes }) => {
+  let recipesToDisplay;
+  if (recipes.length) {
+    recipesToDisplay = recipes.map((recipe, index) => <p key={index}>{recipe.title}</p>)
+  }
   return (
-    <p>{props.data}</p>
+    <>
+    {recipesToDisplay}
+    </>
   )
 }
 
