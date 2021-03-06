@@ -20,7 +20,7 @@ const App = () => {
             <>
               <Header />
               <div className="body-wrapper">
-                <Aside />
+                <Aside favorites={favorites}/>
                 <Recipes
                   setCurrentRecipe={setCurrentRecipe}
                   setFavorites={setFavorites}
