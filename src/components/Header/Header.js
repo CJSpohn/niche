@@ -5,6 +5,7 @@ const Header = () => {
   return(
     <header className="header">
       <h1>Kitchen Sink</h1>
+      <p>Use it before you lose it!</p>
     </header>
   )
 }

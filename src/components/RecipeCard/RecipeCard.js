@@ -8,9 +8,9 @@ const RecipeCard = ({ recipe }) => {
   const classColor = missingIngredients.length > 7 ? 'red' : 'green';
   return (
     <article className="recipe-card">
-      <h2>{recipe.title}</h2>
+      <h4>{recipe.title}</h4>
       <img className="recipe-img" src={recipe.image} alt={recipe.title}/>
-      <h3>You will need <span className={classColor + " missing"}>{missingIngredients.length}</span> more ingredients.</h3>
+      <p>You will need <span className={classColor + " missing"}>{missingIngredients.length}</span> more ingredients.</p>
     </article>
   )
 }

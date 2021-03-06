@@ -5,6 +5,7 @@ const Aside = () => {
   return (
     <section className="aside">
       <h1>Current Highlights</h1>
+      <hr/>
     </section>
   )
 }
