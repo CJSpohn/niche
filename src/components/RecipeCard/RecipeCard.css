@@ -9,6 +9,16 @@
   height: 100px;
 }
 
+.dietary-info-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dietary-info {
+  color: #A44703;
+  font-weight: bold;
+}
+
 .red {
   color: #4D0906;
 }

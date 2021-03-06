@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeCard from '../RecipeCard/RecipeCard'
+import RecipeKey from '../RecipeKey/RecipeKey'
 import './RecipeResults.css';
 
 const RecipeResults = ({ recipes }) => {
@@ -8,9 +9,12 @@ const RecipeResults = ({ recipes }) => {
     recipesToDisplay = recipes.results.map((recipe, index) => <RecipeCard recipe={recipe} key={index}/>)
   }
   return (
-    <section className="card-grid">
-      {recipesToDisplay.length && recipesToDisplay}
-    </section>
+    <>
+      <RecipeKey />
+      <section className="card-grid">
+        {recipesToDisplay.length && recipesToDisplay}
+      </section>
+    </>
   )
 }
 
