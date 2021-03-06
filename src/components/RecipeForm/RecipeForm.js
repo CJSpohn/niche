@@ -7,8 +7,10 @@ const RecipeForm = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipes] = useState([]);
 
-  const getRecipes = async () => {
-    const ingredientsSearchQuery = ingredients.map(ingredient => ingredient.toLowercase()).join(',')
+  const getRecipes = async (e) => {
+    console.log(api)
+    e.preventDefault();
+    const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
     const data = await api.getRecipes(`http://www.recipepuppy.com/api/?i=${ingredientsSearchQuery}`)
     const results = await data.json();
     console.log(results);
@@ -26,7 +28,7 @@ const RecipeForm = () => {
           value={ingredients}
           onChange={e => setIngredients(e.target.value)}
         />
-        <button onClick={getRecipes}className="search-btn">Find recipes!</button>
+        <button onClick={e => getRecipes(e)}className="search-btn">Find recipes!</button>
       </form>
       {recipes && <RecipeResults recipes={recipes}/>}
     </>
