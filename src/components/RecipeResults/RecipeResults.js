@@ -8,9 +8,9 @@ const RecipeResults = ({ recipes }) => {
     recipesToDisplay = recipes.results.map((recipe, index) => <RecipeCard recipe={recipe} key={index}/>)
   }
   return (
-    <>
+    <section className="card-grid">
       {recipesToDisplay.length && recipesToDisplay}
-    </>
+    </section>
   )
 }
 

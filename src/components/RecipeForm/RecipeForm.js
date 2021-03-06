@@ -12,7 +12,7 @@ const RecipeForm = () => {
     e.preventDefault();
     const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
     console.log('ingredients', ingredientsSearchQuery)
-    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=1&apiKey=${apiKey}`)
+    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
     const results = await data.json();
     console.log('results', results);
     setRecipes(results);
