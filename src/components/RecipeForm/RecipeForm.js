@@ -8,10 +8,12 @@ const RecipeForm = () => {
   const [recipes, setRecipes] = useState([]);
 
   const getRecipes = async (e) => {
+    console.log(process.env)
+    const apiKey = process.env.REACT_APP_SPOON_KEY;
     console.log(api)
     e.preventDefault();
     const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
-    const data = await api.getRecipes(`http://www.recipepuppy.com/api/?i=${ingredientsSearchQuery}`)
+    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredientsSearchQuery}&number=2?apiKey=${apiKey}`)
     const results = await data.json();
     console.log(results);
     setRecipes(results);
