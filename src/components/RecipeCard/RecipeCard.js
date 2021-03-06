@@ -19,6 +19,7 @@ const RecipeCard = ({ recipe }) => {
         {recipe.veryHealthy && <p className="dietary-info">H</p>}
         {recipe.veryPopular && <p className="dietary-info">A+</p>}
       </div>
+      <button className="details-btn">Recipe</button>
     </article>
   )
 }

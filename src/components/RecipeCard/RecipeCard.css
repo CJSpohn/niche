@@ -19,6 +19,16 @@
   font-weight: bold;
 }
 
+.details-btn {
+  width: 50%;
+  border-radius: 50px;
+  background-color: #DD9D46;
+}
+
+.details-btn:hover {
+  background-color: #A44703;
+}
+
 .red {
   color: #4D0906;
 }
