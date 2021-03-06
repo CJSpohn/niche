@@ -3,8 +3,8 @@ import RecipeResults from '../RecipeResults/RecipeResults'
 import api from './RecipeFetch.js';
 import './RecipeForm.css';
 
-const RecipeForm = () => {
-  const [ingredients, setIngredients] = useState([]);
+const RecipeForm = ({ setCurrentRecipe, setFavorites }) => {
+  const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
 
   const getRecipes = async (e) => {
@@ -16,6 +16,7 @@ const RecipeForm = () => {
     const results = await data.json();
     console.log('results', results);
     setRecipes(results);
+    setIngredients('')
   }
 
   return(
@@ -31,7 +32,12 @@ const RecipeForm = () => {
         />
         <button onClick={e => getRecipes(e)} className="search-btn">Find recipes!</button>
       </form>
-      {recipes.length !== 0 && <RecipeResults recipes={recipes}/>}
+      {recipes.length !== 0 &&
+        <RecipeResults
+          setCurrentRecipe={setCurrentRecipe}
+          setFavorites={setFavorites}recipes={recipes}
+          />
+      }
     </>
   )
 }

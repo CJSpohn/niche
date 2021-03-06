@@ -3,10 +3,16 @@ import RecipeCard from '../RecipeCard/RecipeCard'
 import RecipeKey from '../RecipeKey/RecipeKey'
 import './RecipeResults.css';
 
-const RecipeResults = ({ recipes }) => {
+const RecipeResults = ({ recipes, setCurrentRecipe, setFavorites }) => {
   let recipesToDisplay;
   if (recipes.results.length) {
-    recipesToDisplay = recipes.results.map((recipe, index) => <RecipeCard recipe={recipe} key={index}/>)
+    recipesToDisplay = recipes.results.map((recipe, index) =>
+      <RecipeCard
+        setCurrentRecipe={setCurrentRecipe}
+        setFavorites={setFavorites}
+        recipe={recipe}
+        key={index}
+      />)
   }
   return (
     <>

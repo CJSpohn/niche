@@ -1,15 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites }) => {
   console.log('recipeCard', recipe)
-
   //move to details page
   const missingIngredients = recipe.missedIngredients.map((ingr, index) => <p key={index}>{ingr.original}</p>)
   const classColor = missingIngredients.length > 7 ? 'red' : 'green';
   return (
     <article className="recipe-card">
-      <h4>{recipe.title}</h4>
+      <h4 className="title">{recipe.title}</h4>
       <img className="recipe-img" src={recipe.image} alt={recipe.title}/>
       <p>You will need <span className={classColor + " missing"}>{missingIngredients.length}</span> more ingredients.</p>
       <div className="dietary-info-wrapper">
@@ -19,7 +19,11 @@ const RecipeCard = ({ recipe }) => {
         {recipe.veryHealthy && <p className="dietary-info">H</p>}
         {recipe.veryPopular && <p className="dietary-info">A+</p>}
       </div>
-      <button className="details-btn">Recipe</button>
+      <Link to={{
+        pathname:`/recipes/${recipe.title}`
+      }}>
+        <button onClick={() => setCurrentRecipe(recipe)} className="details-btn">Recipe</button>
+      </Link>
     </article>
   )
 }
