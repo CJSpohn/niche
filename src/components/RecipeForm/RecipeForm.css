@@ -5,5 +5,24 @@
   align-items: center;
   margin: auto;
   height: 20vh;
-  width: 25vw;
+}
+
+.input {
+  font-size: 1.2rem;
+  width: 80%;
+  height: 15%;
+  padding-left: 10px;
+  border-radius: 20px;
+}
+
+.search-btn {
+  font-size: 1.5rem;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #DD9D46;
+}
+
+.search-btn:hover {
+  background-color: #A44703;
 }

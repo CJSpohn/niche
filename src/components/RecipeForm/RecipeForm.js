@@ -24,12 +24,12 @@ const RecipeForm = () => {
         <input
           className="input"
           type="text"
-          placeholder="Enter the ingredients you need to use"
+          placeholder="Enter ingredients as a comma separated list (e.g. garlic, onions, mushrooms)"
           name="ingredients"
           value={ingredients}
           onChange={e => setIngredients(e.target.value)}
         />
-        <button onClick={e => getRecipes(e)}className="search-btn">Find recipes!</button>
+        <button onClick={e => getRecipes(e)} className="search-btn">Find recipes!</button>
       </form>
       {recipes.length !== 0 && <RecipeResults recipes={recipes}/>}
     </>
