@@ -1,0 +1,11 @@
+.aside {
+  margin-top: 5vh;
+  width: 30vw;
+  height: 90vh;
+  border: 1px solid black;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 10px;
+}

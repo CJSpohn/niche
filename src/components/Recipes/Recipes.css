@@ -1,0 +1,8 @@
+.recipes {
+  width: 60vw;
+  border: 1px solid blue;
+  height: 90vh;
+  margin-top: 5vh;
+  margin-right: 3vw;
+  text-align: center;
+}

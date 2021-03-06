@@ -1,0 +1,39 @@
+import React, { useState } from 'react';
+import RecipeResults from '../RecipeResults/RecipeResults'
+import api from './RecipeFetch.js';
+import './RecipeForm.css';
+
+const RecipeForm = () => {
+  const [ingredients, setIngredients] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+
+  const getRecipes = async (e) => {
+    const apiKey = process.env.REACT_APP_SPOON_KEY;
+    e.preventDefault();
+    const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
+    console.log('ingredients', ingredientsSearchQuery)
+    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=1&apiKey=${apiKey}`)
+    const results = await data.json();
+    console.log('results', results);
+    setRecipes(results);
+  }
+
+  return(
+    <>
+      <form className="form">
+        <input
+          className="input"
+          type="text"
+          placeholder="Enter the ingredients you need to use"
+          name="ingredients"
+          value={ingredients}
+          onChange={e => setIngredients(e.target.value)}
+        />
+        <button onClick={e => getRecipes(e)}className="search-btn">Find recipes!</button>
+      </form>
+      {recipes.length !== 0 && <RecipeResults recipes={recipes}/>}
+    </>
+  )
+}
+
+export default RecipeForm;
