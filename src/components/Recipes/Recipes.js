@@ -5,7 +5,7 @@ import RecipeForm from '../RecipeForm/RecipeForm'
 const Recipes = () => {
   return(
     <section className="recipes">
-      <h1>Recipes</h1>
+      <h1>What ingredients do you need to use?</h1>
       <RecipeForm />
     </section>
   )

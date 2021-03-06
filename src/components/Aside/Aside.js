@@ -4,7 +4,7 @@ import './Aside.css';
 const Aside = () => {
   return (
     <section className="aside">
-      <h1>Aside</h1>
+      <h1>Current Highlights</h1>
     </section>
   )
 }
