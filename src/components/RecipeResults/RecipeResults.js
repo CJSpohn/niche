@@ -1,14 +1,15 @@
 import React from 'react';
+import RecipeCard from '../RecipeCard/RecipeCard'
 import './RecipeResults.css';
 
 const RecipeResults = ({ recipes }) => {
   let recipesToDisplay;
-  if (recipes.length) {
-    recipesToDisplay = recipes.map((recipe, index) => <p key={index}>{recipe.title}</p>)
+  if (recipes.results.length) {
+    recipesToDisplay = recipes.results.map((recipe, index) => <RecipeCard recipe={recipe} key={index}/>)
   }
   return (
     <>
-    {recipesToDisplay}
+      {recipesToDisplay.length && recipesToDisplay}
     </>
   )
 }

@@ -31,7 +31,7 @@ const RecipeForm = () => {
         />
         <button onClick={e => getRecipes(e)}className="search-btn">Find recipes!</button>
       </form>
-      {recipes && <RecipeResults recipes={recipes}/>}
+      {recipes.length !== 0 && <RecipeResults recipes={recipes}/>}
     </>
   )
 }
