@@ -24,7 +24,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
         <input
           className="input"
           type="text"
-          placeholder="Enter ingredients as a comma separated list (e.g. garlic, onions, mushrooms)"
+          placeholder="Enter as a comma separated list (e.g. garlic, onions, mushrooms)"
           name="ingredients"
           value={ingredients}
           onChange={e => setIngredients(e.target.value)}

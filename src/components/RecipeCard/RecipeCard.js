@@ -9,7 +9,6 @@ const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites, favorites }) => {
     }
   }
   console.log('recipeCard', recipe)
-  //move to details page
   const missingIngredients = recipe.missedIngredients.map((ingr, index) => <p key={index}>{ingr.original}</p>)
   const classColor = missingIngredients.length > 7 ? 'red' : 'green';
   return (
