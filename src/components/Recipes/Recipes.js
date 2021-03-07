@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Recipes.css'
 import RecipeForm from '../RecipeForm/RecipeForm'
 
@@ -15,6 +16,14 @@ const Recipes = ({ setCurrentRecipe, favorites, setFavorites, setRecipes, recipe
       />
     </section>
   )
+}
+
+Recipes.propTypes = {
+   setCurrentRecipe: PropTypes.func,
+   favorites: PropTypes.array,
+   setFavorites: PropTypes.func,
+   setRecipes: PropTypes.func,
+   recipes: PropTypes.array 
 }
 
 export default Recipes;

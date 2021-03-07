@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
@@ -31,6 +32,13 @@ const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites, favorites }) => {
       <button onClick={addFavorite} className="fav-btn">Fav</button>
     </article>
   )
+}
+
+RecipeCard.propTypes = {
+  recipe: PropTypes.object,
+  setCurrentRecipe: PropTypes.func,
+  favorites: PropTypes.array,
+  setFavorites: PropTypes.func
 }
 
 export default RecipeCard;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './RecipeDetails.css'
 
 const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
@@ -36,6 +37,11 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe }) => {
       </Link>
     </section>
   )
+}
+
+RecipeDetails.propTypes = {
+  currentRecipe: PropTypes.object,
+  setCurrentRecipe: PropTypes.func
 }
 
 export default RecipeDetails;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import RecipeResults from '../RecipeResults/RecipeResults'
+import PropTypes from 'prop-types';
 import api from './RecipeFetch.js';
 import './RecipeForm.css';
 
@@ -14,7 +15,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
     const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
     const results = await data.json();
     console.log('results', results);
-    setRecipes(results);
+    setRecipes(results.results);
     setIngredients('')
   }
 
@@ -41,6 +42,14 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
       }
     </>
   )
+}
+
+RecipeForm.propTypes = {
+  setCurrentRecipe: PropTypes.func,
+  favorites: PropTypes.array,
+  setFavorites: PropTypes.func,
+  recipes: PropTypes.array,
+  setRecipes: PropTypes.func
 }
 
 export default RecipeForm;
