@@ -3,9 +3,8 @@ import RecipeResults from '../RecipeResults/RecipeResults'
 import api from './RecipeFetch.js';
 import './RecipeForm.css';
 
-const RecipeForm = ({ setCurrentRecipe, setFavorites }) => {
+const RecipeForm = ({ setCurrentRecipe, setFavorites, recipes, setRecipes }) => {
   const [ingredients, setIngredients] = useState('');
-  const [recipes, setRecipes] = useState([]);
 
   const getRecipes = async (e) => {
     const apiKey = process.env.REACT_APP_SPOON_KEY;
@@ -35,7 +34,8 @@ const RecipeForm = ({ setCurrentRecipe, setFavorites }) => {
       {recipes.length !== 0 &&
         <RecipeResults
           setCurrentRecipe={setCurrentRecipe}
-          setFavorites={setFavorites}recipes={recipes}
+          setFavorites={setFavorites}
+          recipes={recipes}
           />
       }
     </>

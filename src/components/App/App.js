@@ -9,6 +9,7 @@ import './App.css';
 const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [currentRecipe, setCurrentRecipe] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
   return (
     <>
@@ -22,6 +23,8 @@ const App = () => {
               <div className="body-wrapper">
                 <Aside favorites={favorites}/>
                 <Recipes
+                  setRecipes={setRecipes}
+                  recipes={recipes}
                   setCurrentRecipe={setCurrentRecipe}
                   setFavorites={setFavorites}
                 />
@@ -37,7 +40,9 @@ const App = () => {
               <Header />
               <div className="body-wrapper">
                 <Aside />
-                <RecipeDetails currentRecipe={currentRecipe}/>
+                <RecipeDetails
+                  currentRecipe={currentRecipe}
+                  setCurrentRecipe={setCurrentRecipe}/>
               </div>
             </>
           )}
