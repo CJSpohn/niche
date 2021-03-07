@@ -56,6 +56,13 @@ const App = () => {
             </>
           )}
         />
+        <Route render={() => (
+          <>
+            <Header />
+            <h2 className="no-page">There is nothing here</h2>
+          </>
+        )}
+        />
       </Switch>
     </>
   )
