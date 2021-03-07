@@ -24,6 +24,7 @@ const App = () => {
                 <Aside
                   favorites={favorites}
                   setFavorites={setFavorites}
+                  setCurrentRecipe={setCurrentRecipe}
                 />
                 <Recipes
                   setRecipes={setRecipes}
@@ -46,6 +47,7 @@ const App = () => {
                 <Aside
                   favorites={favorites}
                   setFavorites={setFavorites}
+                  setCurrentRecipe={setCurrentRecipe}
                 />
                 <RecipeDetails
                   currentRecipe={currentRecipe}

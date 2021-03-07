@@ -2,13 +2,14 @@ import React from 'react';
 import Favorite from '../Favorite/Favorite.js'
 import './Aside.css';
 
-const Aside = ({ favorites, setFavorites }) => {
+const Aside = ({ favorites, setFavorites, setCurrentRecipe }) => {
   const favoriteComponents = favorites.map((fav, index) => (
     <Favorite
       key={index}
       recipe={fav}
       favorites={favorites}
       setFavorites={setFavorites}
+      setCurrentRecipe={setCurrentRecipe}
     />))
   return (
     <section className="aside">
