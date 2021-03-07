@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
-const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites }) => {
+const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites, favorites }) => {
   console.log('recipeCard', recipe)
   //move to details page
   const missingIngredients = recipe.missedIngredients.map((ingr, index) => <p key={index}>{ingr.original}</p>)
@@ -24,6 +24,7 @@ const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites }) => {
       }}>
         <button onClick={() => setCurrentRecipe(recipe)} className="details-btn">Recipe</button>
       </Link>
+      <button onClick={() => setFavorites([...favorites, recipe])} className="fav-btn">Favorite</button>
     </article>
   )
 }

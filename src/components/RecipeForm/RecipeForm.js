@@ -3,7 +3,7 @@ import RecipeResults from '../RecipeResults/RecipeResults'
 import api from './RecipeFetch.js';
 import './RecipeForm.css';
 
-const RecipeForm = ({ setCurrentRecipe, setFavorites, recipes, setRecipes }) => {
+const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRecipes }) => {
   const [ingredients, setIngredients] = useState('');
 
   const getRecipes = async (e) => {
@@ -36,6 +36,7 @@ const RecipeForm = ({ setCurrentRecipe, setFavorites, recipes, setRecipes }) => 
           setCurrentRecipe={setCurrentRecipe}
           setFavorites={setFavorites}
           recipes={recipes}
+          favorites={favorites}
           />
       }
     </>

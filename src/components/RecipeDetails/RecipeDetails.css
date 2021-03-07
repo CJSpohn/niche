@@ -18,10 +18,13 @@
 
 ul {
   background-color: lightgrey;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 li {
   text-align: left;
+  margin: 10px;
 }
 
 h2 {
