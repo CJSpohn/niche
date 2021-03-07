@@ -1,5 +1,6 @@
 import React from 'react';
 import Favorite from '../Favorite/Favorite.js'
+import PropTypes from 'prop-types';
 import './Aside.css';
 
 const Aside = ({ favorites, setFavorites, setCurrentRecipe }) => {
@@ -18,6 +19,12 @@ const Aside = ({ favorites, setFavorites, setCurrentRecipe }) => {
       {favoriteComponents}
     </section>
   )
+}
+
+Aside.propTypes = {
+  favorites: PropTypes.array,
+  setFavorites: PropTypes.func,
+  setCurrentRecipe: PropTypes.func
 }
 
 export default Aside;
