@@ -19,7 +19,7 @@ const RecipeResults = ({ recipes, setCurrentRecipe, favorites, setFavorites }) =
     <>
       <RecipeKey />
       <section className="card-grid">
-        {recipesToDisplay.length && recipesToDisplay}
+        {recipes.results.length ? recipesToDisplay : <h2 className="no-results">No results found</h2>}
       </section>
     </>
   )
