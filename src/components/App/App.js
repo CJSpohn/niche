@@ -21,7 +21,10 @@ const App = () => {
             <>
               <Header />
               <div className="body-wrapper">
-                <Aside favorites={favorites}/>
+                <Aside
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                />
                 <Recipes
                   setRecipes={setRecipes}
                   recipes={recipes}
@@ -40,7 +43,10 @@ const App = () => {
             <>
               <Header />
               <div className="body-wrapper">
-                <Aside />
+                <Aside
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                />
                 <RecipeDetails
                   currentRecipe={currentRecipe}
                   setCurrentRecipe={setCurrentRecipe}/>

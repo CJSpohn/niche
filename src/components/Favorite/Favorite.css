@@ -1,7 +1,7 @@
 .fav-aside-div {
   position: relative;
   width: 90%;
-  height: 80px;
+  height: 85px;
   background-color: lightgrey;
   border-radius: 10px;
   font-size: 1rem;
@@ -19,7 +19,7 @@
 .remove-btn {
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 10px;
   width: 50px;
   height: 30px;
   padding: 0;
@@ -28,12 +28,18 @@
 .view-btn {
   position: absolute;
   right: 10px;
-  top: 40px;
+  top: 45px;
   width: 50px;
   height: 30px;
   padding: 0;
 }
 
-.fav-aside-btn:hover {
+.remove-btn,
+.view-btn {
+  border-radius: 10px;
+}
+
+.remove-btn:hover,
+.view-btn:hover {
   background-color: darkgrey;
 }
