@@ -1,4 +1,4 @@
-.fav-aside-btn {
+.fav-aside-div {
   position: relative;
   width: 90%;
   height: 80px;
@@ -6,20 +6,32 @@
   border-radius: 10px;
   font-size: 1rem;
   margin: 10px auto;
+  text-align: left;
 }
 
-.aside-btn-title {
+.aside-title {
   position: absolute;
-  left: 10;
+  left: 10px;
   top: 30px;
+  max-width: 70%;
 }
 
-.thumbnail {
+.remove-btn {
   position: absolute;
   right: 10px;
-  bottom: 20px;
-  width: 40px;
-  height: 40px;
+  top: 5px;
+  width: 50px;
+  height: 30px;
+  padding: 0;
+}
+
+.view-btn {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  width: 50px;
+  height: 30px;
+  padding: 0;
 }
 
 .fav-aside-btn:hover {

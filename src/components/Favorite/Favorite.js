@@ -3,10 +3,11 @@ import './Favorite.css';
 
 const Favorite = ({ recipe }) => {
   return (
-    <button className="fav-aside-btn">
-      <p className="aside-btn-title">{recipe.title}</p>
-      <img className="thumbnail" src={recipe.image} alt={recipe.title}/>
-    </button>
+    <div className="fav-aside-div">
+      <p className="aside-title">{recipe.title}</p>
+      <button className="remove-btn">Delete</button>
+      <button className="view-btn">View</button>
+    </div>
   )
 }
 
