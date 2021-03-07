@@ -12,8 +12,20 @@
   text-align: center;
 }
 
+.used {
+  color: green;
+}
+
+ul {
+  background-color: lightgrey;
+}
+
 li {
   text-align: left;
+}
+
+h2 {
+  margin-bottom: 0;
 }
 
 .back-btn {
