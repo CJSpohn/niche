@@ -23,18 +23,25 @@
   color: #A44703;
   font-weight: bold;
 }
+
 a {
   width: 100%;
 }
 
-.details-btn,
-.fav-btn {
+.details-btn {
   width: 50%;
   border-radius: 50px;
   background-color: #DD9D46;
 }
 
-.details-btn:hover {
+.fav-btn {
+  width: 25%;
+  border-radius: 50px;
+  background-color: #DD9D46;
+}
+
+.details-btn:hover,
+.fav-btn:hover {
   background-color: #A44703;
 }
 

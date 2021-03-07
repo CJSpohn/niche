@@ -24,7 +24,7 @@ const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites, favorites }) => {
       }}>
         <button onClick={() => setCurrentRecipe(recipe)} className="details-btn">Recipe</button>
       </Link>
-      <button onClick={() => setFavorites([...favorites, recipe])} className="fav-btn">Favorite</button>
+      <button onClick={() => setFavorites([...favorites, recipe])} className="fav-btn">Fav</button>
     </article>
   )
 }

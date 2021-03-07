@@ -1,0 +1,27 @@
+.fav-aside-btn {
+  position: relative;
+  width: 90%;
+  height: 80px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 10px auto;
+}
+
+.aside-btn-title {
+  position: absolute;
+  left: 10;
+  top: 30px;
+}
+
+.thumbnail {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.fav-aside-btn:hover {
+  background-color: darkgrey;
+}
