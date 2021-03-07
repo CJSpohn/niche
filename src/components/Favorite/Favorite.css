@@ -1,0 +1,45 @@
+.fav-aside-div {
+  position: relative;
+  width: 90%;
+  height: 85px;
+  background-color: #BCA79C;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.aside-title {
+  position: absolute;
+  left: 10px;
+  top: 30px;
+  max-width: 70%;
+}
+
+.remove-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 50px;
+  height: 30px;
+  padding: 0;
+}
+
+.view-btn {
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  width: 50px;
+  height: 30px;
+  padding: 0;
+}
+
+.remove-btn,
+.view-btn {
+  border-radius: 10px;
+}
+
+.remove-btn:hover,
+.view-btn:hover {
+  background-color: darkgrey;
+}
