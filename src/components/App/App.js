@@ -8,7 +8,7 @@ import './App.css';
 
 const App = () => {
   const [favorites, setFavorites] = useState([]);
-  const [currentRecipe, setCurrentRecipe] = useState([]);
+  const [currentRecipe, setCurrentRecipe] = useState({});
   const [recipes, setRecipes] = useState([]);
 
   return (
@@ -39,8 +39,8 @@ const App = () => {
         />
         <Route
           exact
-          path="/recipes/:title"
-          render={() => (
+          path="/recipes/:title/:id"
+          render={({ match }) => (
             <>
               <Header />
               <div className="body-wrapper">
@@ -50,6 +50,7 @@ const App = () => {
                   setCurrentRecipe={setCurrentRecipe}
                 />
                 <RecipeDetails
+                  id={match.params.id}
                   currentRecipe={currentRecipe}
                   setCurrentRecipe={setCurrentRecipe}/>
               </div>
