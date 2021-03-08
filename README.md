@@ -2,6 +2,8 @@
 ## A recipe app that allows you to search recipes by ingredients you have that you want to use up! Search for anything but the kitchen sink!
 #### Turing School of Software Design - Mod3 Niche Audience Project
 
+The goal of this project was to demonstrate my understanding of working with APIs, React, React Router, and Cypress by building a front-end application in under a week. 
+
 ### Contributors
 
 **Chris Spohn** : [github profile](https://github.com/CJSpohn)
