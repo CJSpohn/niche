@@ -2,23 +2,30 @@ import React, { useState } from 'react';
 import RecipeResults from '../RecipeResults/RecipeResults'
 import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
+import ErrorPage from '../ErrorPage/ErrorPage'
 import api from './RecipeFetch.js';
 import './RecipeForm.css';
 
 const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRecipes }) => {
   const [ingredients, setIngredients] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const getRecipes = async (e) => {
     setLoading(true);
     const apiKey = process.env.REACT_APP_SPOON_KEY;
     e.preventDefault();
     const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
-    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
-    const results = await data.json();
-    setRecipes(results.results);
-    setIngredients('');
-    setLoading(false);
+    try {
+      const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
+      const results = await data.json();
+      setRecipes(results.results);
+      setIngredients('');
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError(true);
+    }
   }
 
   return(
@@ -34,7 +41,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
         />
         <button onClick={e => getRecipes(e)} className="search-btn">Find recipes!</button>
       </form>
-      {recipes.length !== 0 &&
+      {recipes.length !== 0 && !error &&
         <RecipeResults
           setCurrentRecipe={setCurrentRecipe}
           setFavorites={setFavorites}
@@ -43,7 +50,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
           />
       }
       {loading ? <Loader /> : null}
-
+      {error && <ErrorPage />}
     </>
   )
 }

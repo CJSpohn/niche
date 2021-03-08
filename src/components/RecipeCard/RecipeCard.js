@@ -25,7 +25,7 @@ const RecipeCard = ({ recipe, setCurrentRecipe, setFavorites, favorites }) => {
         {recipe.veryPopular && <p className="dietary-info">A+</p>}
       </div>
       <Link to={{
-        pathname:`/recipes/${recipe.title}`
+        pathname:`/recipes/${recipe.title}/${recipe.id}`
       }}>
         <button onClick={() => setCurrentRecipe(recipe)} className="details-btn">Recipe</button>
       </Link>
