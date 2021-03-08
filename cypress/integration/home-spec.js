@@ -36,14 +36,67 @@ describe ('Home Page', () => {
     cy.get('button')
       .should('exist')
   })
+});
+
+describe('looking up recipes', () => {
+  beforeEach(() => {
+      cy.intercept(`https://api.spoonacular.com/**`,
+        { fixture: 'results.json' })
+  })
 
   it('should return recipes based on ingredients', () => {
-    cy.intercept(`https://api.spoonacular.com/**`,
-      { fixture: 'results.json' })
+    cy.get('input')
+    .type('onions, broccoli')
 
-    cy.get('form')
-      .type('onions, broccoli')
+    cy.get('button')
+      .click()
 
-    
+    cy.get('.card-grid')
+      .children()
+      .should('have.length', 2)
+  })
+
+  it('should have the right title on each card', () => {
+    cy.get('.card-grid')
+      .children('article:first')
+      .get('h4')
+      .contains('Whole Chicken Dinner')
+
+    cy.get('.card-grid')
+      .children('article:nth-child(2)')
+      .get('h4')
+      .contains('Thai Pasta Salad')
+  })
+
+  it('each card should have an img', () => {
+    cy.get('.card-grid')
+      .children('article:first')
+      .find('img')
+      .should('exist')
+
+    cy.get('.card-grid')
+      .children('article:nth-child(2)')
+      .find('img')
+      .should('exist')
+  })
+
+  it('should be able to add a card to favorites by clicking the fav buton', () => {
+    cy.get('.card-grid')
+      .children('article:first')
+      .find('.fav-btn')
+      .click();
+
+    cy.get('.aside-title')
+      .contains('Whole Chicken Dinner')
+  })
+
+  it('should be able to remove a favorite from the highlights', () => {
+    cy.get('.fav-aside-div')
+      .find('.remove-btn')
+      .click()
+
+    cy.get('.aside')
+      .get('p')
+      .contains('You haven\'t favorited anything yet')
   })
 });
