@@ -131,7 +131,7 @@ describe('a reattempt to search', () => {
   })
 })
 
-describe.only('the recipe page', () => {
+describe('the recipe page', () => {
   it('should be able to click on a recipe to view details', () => {
     cy.visit('http://localhost:3000')
     cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'results.json', status: 200 })
@@ -205,6 +205,28 @@ describe.only('the recipe page', () => {
   })
 })
 
-describe('a direct link', () => {
-  
+describe.only('a direct link', () => {
+  it('should be able to navigate straight to a saved url', () => {
+    cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'individualResult.json', status: 200 })
+    cy.visit('http://localhost:3000/recipes/Cauliflower,%20Brown%20Rice,%20and%20Vegetable%20Fried%20Rice/716426')
+
+    cy.get('h1')
+      .contains('Cauliflower, Brown Rice, and Vegetable Fried Rice')
+
+    cy.get('img')
+      .should('exist')
+
+    cy.get('h2')
+      .contains('Ingredients')
+
+    cy.get('h2').eq(1)
+      .contains('Instructions')
+  })
+
+  it('should be able to navigate to home from a direct link', () => {
+    cy.get('button').click()
+
+    cy.get('h1')
+      .contains('What ingredients do you need to use?')
+  })
 })
