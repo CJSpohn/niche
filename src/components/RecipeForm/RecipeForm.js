@@ -19,6 +19,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
     try {
       const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
       const results = await data.json();
+      console.log(results)
       setRecipes(results.results);
       setIngredients('');
       setLoading(false);

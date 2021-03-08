@@ -99,3 +99,11 @@ describe('looking up recipes', () => {
       .contains('You haven\'t favorited anything yet')
   })
 });
+
+describe('failed api request', () => {
+  it('should show an error message if a fetch fails', () => {
+    cy.visit('http://localhost:3000')
+    cy.intercept('GET', `https://api.spoonacular.com/**`, {statusCode: 400})
+    cy.get('button').click()
+  })
+})
