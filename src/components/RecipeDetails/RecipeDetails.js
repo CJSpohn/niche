@@ -13,12 +13,12 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
   const buildRecipeDisplay = () => {
     if (currentRecipe.missingIngredients && currentRecipe.usedIngredients) {
       const missingIngredients = currentRecipe.missedIngredients.map(ingr => ingr.original);
-      missingIngredientsComponents = missingIngredients.map((ingr, index) => <li className="mising" key={index}>{ingr}</li>);
+      missingIngredientsComponents = missingIngredients.map((ingr, index) => <li className="missing" key={index}>{ingr}</li>);
       const usedIngredients = currentRecipe.usedIngredients.map(ingr => ingr.original);
       usedIngredientComponents = usedIngredients.map((ingr, index) => <li className="used" key={index}>{ingr}</li>)
     } else if (currentRecipe.extendedIngredients) {
       const missingIngredients = currentRecipe.extendedIngredients.map(ingr => ingr.original);
-      missingIngredientsComponents = missingIngredients.map((ingr, index) => <li className="mising" key={index}>{ingr}</li>);
+      missingIngredientsComponents = missingIngredients.map((ingr, index) => <li className="missing" key={index}>{ingr}</li>);
     }
     if (currentRecipe.analyzedInstructions.length) {
       instructions = currentRecipe.analyzedInstructions[0].steps.map(step => step.step);

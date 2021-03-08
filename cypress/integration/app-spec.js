@@ -105,5 +105,106 @@ describe('failed api request', () => {
     cy.visit('http://localhost:3000')
     cy.intercept('GET', `https://api.spoonacular.com/**`, {statusCode: 400})
     cy.get('button').click()
+
+    cy.get('.error-message')
+    .should('exist')
   })
+});
+
+describe('a reattempt to search', () => {
+  it('should hide the error message after a successful reattempt to search', () => {
+    cy.visit('http://localhost:3000')
+    cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'results.json', status: 200 })
+
+    cy.get('input')
+    .type('onions, broccoli')
+
+    cy.get('button')
+      .click()
+
+    cy.get('.card-grid')
+      .children()
+      .should('have.length', 2)
+
+    cy.get('.error-message')
+      .should('not.exist')
+  })
+})
+
+describe.only('the recipe page', () => {
+  it('should be able to click on a recipe to view details', () => {
+    cy.visit('http://localhost:3000')
+    cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'results.json', status: 200 })
+
+    cy.get('input')
+    .type('onions, broccoli')
+
+    cy.get('button')
+      .click()
+
+    cy.get('.card-grid')
+      .children('article:first')
+      .find('a')
+      .click();
+
+    cy.get('h2')
+      .contains('Ingredients')
+
+    cy.get('h2').eq(1)
+      .contains('Instructions')
+  })
+
+  it('should have the title of the recipe and it\'s image', () => {
+    cy.get('h1')
+      .contains('Whole Chicken Dinner')
+
+    cy.get('img')
+      .should('exist')
+  })
+
+  it('should have a lost for ingredients and instructions', () => {
+    cy.get('ul').eq(0)
+      .children()
+      .should('have.length', 17)
+
+    cy.get('ul').eq(1)
+      .children()
+      .should('have.length', 15)
+  })
+
+  it('should be able to go back to the main display and have original search results', () => {
+    cy.get('button')
+      .click();
+
+    cy.get('.card-grid')
+      .children()
+      .should('have.length', 2)
+  })
+
+  it('should be able to navigate to the recipe from the favorites', () => {
+    cy.get('.card-grid')
+      .children('article:first')
+      .find('.fav-btn')
+      .click();
+
+    cy.get('.fav-aside-div')
+      .find('.view-btn')
+      .click()
+
+    cy.get('h1')
+      .contains('Whole Chicken Dinner')
+
+    cy.get('img')
+      .should('exist')
+
+    cy.get('h2')
+      .contains('Ingredients')
+
+    cy.get('h2').eq(1)
+      .contains('Instructions')
+  })
+})
+
+describe('a direct link', () => {
+  
 })
