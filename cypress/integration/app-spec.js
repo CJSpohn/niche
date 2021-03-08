@@ -154,7 +154,7 @@ describe('the recipe page', () => {
       .contains('Instructions')
   })
 
-  it('should have the title of the recipe and it\'s image', () => {
+  it('should have the title of the recipe and its image', () => {
     cy.get('h1')
       .contains('Whole Chicken Dinner')
 
@@ -162,7 +162,7 @@ describe('the recipe page', () => {
       .should('exist')
   })
 
-  it('should have a lost for ingredients and instructions', () => {
+  it('should have a list for ingredients and instructions', () => {
     cy.get('ul').eq(0)
       .children()
       .should('have.length', 17)
@@ -231,7 +231,7 @@ describe('a direct link', () => {
   })
 })
 
-describe.only('a 404 page', () => {
+describe('a 404 page', () => {
   it('should render a 404 page for a nonexistant url', () => {
     cy.visit('http://localhost:3000/fakeurl')
 
