@@ -3,7 +3,10 @@ import './ErrorPage.css'
 
 const ErrorPage = () => {
   return (
-    <h1>Oh no, something went wrong</h1>
+    <section className="error-wrapper">
+      <h1 className="error-message">Oh no, something went wrong.
+      Please try again later.</h1>
+    </section>
   )
 }
 

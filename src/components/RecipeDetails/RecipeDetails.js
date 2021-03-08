@@ -43,7 +43,7 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
 
   return (
     <>
-    {currentRecipe && <section className="details">
+    {currentRecipe && !error && <section className="details">
       <h1 className="recipe-title">{currentRecipe.title}</h1>
       <p>Gluten Free: {currentRecipe.glutenFree ? 'Yes' : 'No'} | Vegan: {currentRecipe.vegan ? 'Yes' : 'No'} | Dairy Free: {currentRecipe.dairyFree ? 'Yes' : 'No'}</p>
       <div className="details-wrapper">
@@ -64,6 +64,7 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
         <button onClick={() => setCurrentRecipe([])} className="back-btn">Back to results</button>
       </Link>
     </section>}
+    {error && <ErrorPage />}
     </>
   )
 }
