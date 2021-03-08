@@ -6,7 +6,6 @@ const api = {
         "Content-Type": "application/json",
       },
     });
-    console.log(promise)
     if (promise.status === 200) {
       return promise
     } else {
