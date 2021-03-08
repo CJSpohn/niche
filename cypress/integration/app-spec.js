@@ -205,7 +205,7 @@ describe('the recipe page', () => {
   })
 })
 
-describe.only('a direct link', () => {
+describe('a direct link', () => {
   it('should be able to navigate straight to a saved url', () => {
     cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'individualResult.json', status: 200 })
     cy.visit('http://localhost:3000/recipes/Cauliflower,%20Brown%20Rice,%20and%20Vegetable%20Fried%20Rice/716426')
@@ -228,5 +228,14 @@ describe.only('a direct link', () => {
 
     cy.get('h1')
       .contains('What ingredients do you need to use?')
+  })
+})
+
+describe.only('a 404 page', () => {
+  it('should render a 404 page for a nonexistant url', () => {
+    cy.visit('http://localhost:3000/fakeurl')
+
+    cy.get('h2')
+      .contains('There is nothing here')
   })
 })
