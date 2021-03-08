@@ -1,7 +1,7 @@
 .aside {
   margin-top: 5vh;
   width: 30vw;
-  height: 90vh;
+  height: 70vh;
   text-align: center;
 }
 
@@ -11,4 +11,12 @@ h1 {
 
 hr {
   width: 80%;
+}
+
+@media screen and (max-width: 900px) {
+  .aside {
+    width: 100vw;
+    height: 30vh;
+    overflow-y: scroll;
+  }
 }
