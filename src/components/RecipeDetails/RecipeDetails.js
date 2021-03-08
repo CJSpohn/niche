@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import api from '../RecipeForm/RecipeFetch.js'
 import './RecipeDetails.css'
 
 const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
+  const [error, setError] = useState(false)
+
   console.log('params', id)
   console.log('currentRecipe', currentRecipe)
   console.log(currentRecipe)
@@ -25,11 +27,15 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
     }
   }
   const fetchRecipeFromUrl = async () => {
-    const apiKey = process.env.REACT_APP_SPOON_KEY;
-    const data = await api.getRecipes(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`)
-    const results = await data.json();
-    console.log(results)
-    setCurrentRecipe(results)
+    try {
+      const apiKey = process.env.REACT_APP_SPOON_KEY;
+      const data = await api.getRecipes(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`)
+      const results = await data.json();
+      console.log(results)
+      setCurrentRecipe(results)
+    } catch(e) {
+      setError(true)
+    }
   }
 
   Object.keys(currentRecipe).length ? buildRecipeDisplay() : fetchRecipeFromUrl();
