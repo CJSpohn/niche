@@ -79,7 +79,7 @@ describe('looking up recipes', () => {
       .should('exist')
   })
 
-  it('should be able to add a card to favorites by clicking the fav buton', () => {
+  it('should be able to add a card to favorites by clicking the fav button', () => {
     cy.get('.card-grid')
       .children('article:first')
       .find('.fav-btn')
@@ -87,6 +87,16 @@ describe('looking up recipes', () => {
 
     cy.get('.aside-title')
       .contains('Whole Chicken Dinner')
+  })
+
+  it('should not be able to add the same card twice', () => {
+    cy.get('.card-grid')
+      .children('article:first')
+      .find('.fav-btn')
+      .click();
+
+    cy.get('.fav-aside-div')
+      .should('have.length', 1)
   })
 
   it('should be able to remove a favorite from the highlights', () => {
