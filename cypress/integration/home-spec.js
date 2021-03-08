@@ -40,7 +40,7 @@ describe ('Home Page', () => {
 
 describe('looking up recipes', () => {
   beforeEach(() => {
-      cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'results.json' })
+      cy.intercept(`https://api.spoonacular.com/**`, { fixture: 'results.json', status: 200 })
   })
 
   it('should return recipes based on ingredients', () => {
