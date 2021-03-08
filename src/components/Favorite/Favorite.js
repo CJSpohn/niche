@@ -14,7 +14,7 @@ const Favorite = ({ recipe, favorites, setFavorites, setCurrentRecipe }) => {
       <p className="aside-title">{recipe.title}</p>
       <button onClick={deleteFavorite} className="remove-btn">Delete</button>
       <Link to={{
-        pathname:`/recipes/${recipe.title}`
+        pathname:`/recipes/${recipe.title}/${recipe.id}`
       }}>
         <button onClick={() => setCurrentRecipe(recipe)} className="view-btn">View</button>
       </Link>
