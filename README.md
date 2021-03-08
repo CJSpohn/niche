@@ -60,18 +60,23 @@ Cypress was used to implement end-to-end-tests of the user flow. To run these te
 ## Using Kitchen Sink
 
 First, enter the ingredients you would like to use in the search bar and click the button!
+
 <img width="930" alt="Screen Shot 2021-03-08 at 4 41 02 PM" src="https://user-images.githubusercontent.com/69563078/110396451-4685f580-802d-11eb-85f0-43764874b3af.png">
 
 Recipe cards that contain your ingredients are generated, including how many more ingredients you will need to make the recipe.
+
 <img width="632" alt="Screen Shot 2021-03-08 at 4 41 18 PM" src="https://user-images.githubusercontent.com/69563078/110396458-484fb900-802d-11eb-91d5-e3ff3a15211f.png">
 
 A user can click the "recipe" button to see a list of ingredients for the recipe...
+
 <img width="629" alt="Screen Shot 2021-03-08 at 4 41 34 PM" src="https://user-images.githubusercontent.com/69563078/110396453-47b72280-802d-11eb-9621-7a93b8bbd3b8.png">
 
 ...and instructions.
+
 <img width="663" alt="Screen Shot 2021-03-08 at 4 41 43 PM" src="https://user-images.githubusercontent.com/69563078/110396445-44bc3200-802d-11eb-96de-f8b0f54cea9d.png">
 
 Additionally, a user can favorite a recipe to save it while they search for other ideas. You can come back and revisit that recipe's details at any time!
+
 <img width="310" alt="Screen Shot 2021-03-08 at 4 41 57 PM" src="https://user-images.githubusercontent.com/69563078/110396450-4685f580-802d-11eb-856a-a7cb1c7db9bd.png">
 
 The site does not make use of local storage so there is no data persistance. If you navigate away from the page your favorites will disappear!
