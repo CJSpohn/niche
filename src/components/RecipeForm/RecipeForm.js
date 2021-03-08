@@ -34,8 +34,8 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
         <input
           className="input"
           type="text"
-          aria-label="Add ingredients you need to use up"
-          placeholder="Enter as a comma separated list (e.g. garlic, onions, mushrooms)"
+          aria-label="Add ingredients you need to use up as a comma separated list"
+          placeholder="(e.g. garlic, onions, mushrooms)"
           name="ingredients"
           value={ingredients}
           onChange={e => setIngredients(e.target.value)}

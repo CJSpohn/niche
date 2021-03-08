@@ -26,3 +26,10 @@
 .search-btn:hover {
   background-color: #A44703;
 }
+
+
+@media screen and (max-width: 900px) {
+  .input {
+    font-size: 1rem;
+  }
+}

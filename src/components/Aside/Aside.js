@@ -16,7 +16,7 @@ const Aside = ({ favorites, setFavorites, setCurrentRecipe }) => {
     <section className="aside">
       <h1>Current Highlights</h1>
       <hr/>
-      {favoriteComponents}
+      {favoriteComponents.length ? favoriteComponents : <p>You haven't favorited anything yet</p>}
     </section>
   )
 }

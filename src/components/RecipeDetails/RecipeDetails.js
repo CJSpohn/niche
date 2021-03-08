@@ -6,12 +6,10 @@ import api from '../RecipeForm/RecipeFetch.js'
 import './RecipeDetails.css'
 
 const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
-  const [error, setError] = useState(false)
 
-  console.log('params', id)
-  console.log('currentRecipe', currentRecipe)
-  console.log(currentRecipe)
+  const [error, setError] = useState(false)
   let instructions, instructionComponents, missingIngredientsComponents, usedIngredientComponents;
+
   const buildRecipeDisplay = () => {
     if (currentRecipe.missingIngredients && currentRecipe.usedIngredients) {
       const missingIngredients = currentRecipe.missedIngredients.map(ingr => ingr.original);
@@ -27,12 +25,12 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
       instructionComponents = instructions.map((instr, index) => <li key={index}>{instr}</li>)
     }
   }
+
   const fetchRecipeFromUrl = async () => {
     try {
       const apiKey = process.env.REACT_APP_SPOON_KEY;
       const data = await api.getRecipes(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`)
       const results = await data.json();
-      console.log(results)
       setCurrentRecipe(results)
     } catch(e) {
       setError(true)
@@ -71,7 +69,8 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
 
 RecipeDetails.propTypes = {
   currentRecipe: PropTypes.object,
-  setCurrentRecipe: PropTypes.func
+  setCurrentRecipe: PropTypes.func,
+  id: PropTypes.string
 }
 
 export default RecipeDetails;
