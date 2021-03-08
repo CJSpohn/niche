@@ -6,7 +6,7 @@ import api from '../RecipeForm/RecipeFetch.js'
 import './RecipeDetails.css'
 
 const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
-  
+
   const [error, setError] = useState(false)
   let instructions, instructionComponents, missingIngredientsComponents, usedIngredientComponents;
 
@@ -69,7 +69,8 @@ const RecipeDetails = ({ currentRecipe, setCurrentRecipe, id }) => {
 
 RecipeDetails.propTypes = {
   currentRecipe: PropTypes.object,
-  setCurrentRecipe: PropTypes.func
+  setCurrentRecipe: PropTypes.func,
+  id: PropTypes.string
 }
 
 export default RecipeDetails;
