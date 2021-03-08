@@ -5,7 +5,6 @@ import RecipeKey from '../RecipeKey/RecipeKey'
 import './RecipeResults.css';
 
 const RecipeResults = ({ recipes, setCurrentRecipe, favorites, setFavorites }) => {
-  console.log(recipes)
   let recipesToDisplay;
   if (recipes.length) {
     recipesToDisplay = recipes.map((recipe, index) =>

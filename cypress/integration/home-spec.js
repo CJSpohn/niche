@@ -36,4 +36,14 @@ describe ('Home Page', () => {
     cy.get('button')
       .should('exist')
   })
+
+  it('should return recipes based on ingredients', () => {
+    cy.intercept(`https://api.spoonacular.com/**`,
+      { fixture: 'results.json' })
+
+    cy.get('form')
+      .type('onions, broccoli')
+
+    
+  })
 });
