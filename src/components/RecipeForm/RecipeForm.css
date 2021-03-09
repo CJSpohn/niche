@@ -27,6 +27,12 @@
   background-color: #A44703;
 }
 
+.placeholder-image {
+  height: 300px;
+  width: 300px;
+  margin-top: 50px;
+}
+
 
 @media screen and (max-width: 900px) {
   .input {
