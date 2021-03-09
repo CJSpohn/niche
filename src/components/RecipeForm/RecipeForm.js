@@ -21,7 +21,7 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
     e.preventDefault();
     const ingredientsSearchQuery = ingredients.replaceAll(' ', '');
     try {
-      const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=5&apiKey=${apiKey}`)
+      const data = await api.getRecipes(`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${ingredientsSearchQuery}&addRecipeInformation=true&fillIngredients=true&number=10&apiKey=${apiKey}`)
       const results = await data.json();
       results.results.length === 0 ? setNoResults(true) : setRecipes(results.results);
       setIngredients('');
@@ -38,8 +38,8 @@ const RecipeForm = ({ setCurrentRecipe, favorites, setFavorites, recipes, setRec
         <input
           className="input"
           type="text"
-          aria-label="Add ingredients you need to use up as a comma separated list"
-          placeholder="(e.g. garlic, onions, mushrooms)"
+          aria-label="Add two ingredients you need to use up as a comma separated list"
+          placeholder="(e.g. onions, mushrooms)"
           name="ingredients"
           value={ingredients}
           onChange={e => setIngredients(e.target.value)}
