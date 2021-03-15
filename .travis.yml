@@ -8,7 +8,7 @@ cache:
 install:
   - npm ci
 script:
-  - $(npm bin)/cypress run --record
+  - $(npm bin)/cypress run 
 notifications:
   email: false
 deploy:
